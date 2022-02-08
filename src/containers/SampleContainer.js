@@ -12,9 +12,15 @@ const SampleContainer = ({
   loadingUsers,
 }) => {
   useEffect(() => {
-    // console.log(`loadingPost : ${loadingPost} loadingUsers : ${loadingUsers}`);
-    getPost(1);
-    getUsers();
+    const fn = async () => {
+      try {
+        getPost(1);
+        getUsers();
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fn();
   }, [getPost, getUsers]);
 
   return (
